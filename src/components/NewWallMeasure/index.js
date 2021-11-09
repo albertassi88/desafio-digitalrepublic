@@ -13,7 +13,11 @@ export default function NewWallMeasure(props) {
     const { numWall } = props;
 
     function SaveWallSize() {
-        setWallInformation([...wallInformation, Number(wallHeight) * Number(wallWidth)]);
+        setWallInformation([
+            ...wallInformation, 
+            Number(wallHeight) * Number(wallWidth) 
+            - Number(windowsQuantities) * 2.4 - Number(portQuantities) * 1.52
+        ]);
         setActive(true);
     }
     return (

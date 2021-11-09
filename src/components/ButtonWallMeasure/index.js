@@ -20,7 +20,7 @@ export default function ButtonWallMeasure(props) {
         var reduced = wallInformation.reduce((cc, value) => {
             return cc + value / 5
         }, 0)
-        setNumber2(reduced)
+        setNumber2(reduced);
         setIsModalVisible(true);
     }
     
