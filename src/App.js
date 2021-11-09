@@ -1,9 +1,13 @@
 import React from "react";
+import Home from "./pages/Home/index";
+import TodoProvider from './context/TodoProvider';
 
 function App() {
   return (
-    <div >
-     <p>Home</p>
+    <div>
+      <TodoProvider>
+        <Home />
+      </TodoProvider>
     </div>
   );
 }
