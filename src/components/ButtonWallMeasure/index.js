@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import AmountOfPaints from "../AmountOfPaints";
 import TodoContext from '../../context/TodoContext';
 import { Div, Button } from './style';
 
@@ -22,7 +23,7 @@ export default function ButtonWallMeasure(props) {
         setNumber2(reduced)
         setIsModalVisible(true);
     }
-
+    
     return (   
         <Div> 
             <Button 
@@ -38,6 +39,7 @@ export default function ButtonWallMeasure(props) {
                 >
                 Calcular
             </Button> 
+            {isModalVisible && <AmountOfPaints number2={number2} />}
         </Div>
     );
 }

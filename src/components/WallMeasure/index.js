@@ -1,6 +1,7 @@
 import React, { useState } from "react"; 
 import HeaderWallMeasure from "../HeaderWallMeasure";
 import NewWallMeasure from "../NewWallMeasure";
+import ButtonWallMeasure from "../ButtonWallMeasure";
 import { Div, Li } from './style';
 
 export default function WallMeasure() { 
@@ -18,6 +19,7 @@ export default function WallMeasure() {
                                 </Div>    
                             </Li>
                         ))}
+                        <ButtonWallMeasure setNumWall={setNumWall} numWall={numWall}/>
                     </ul>
             </Div>
         </Div>

@@ -3,7 +3,6 @@ import TodoContext from '../../context/TodoContext';
 import { DivOption, Span, Label, Input, Select, Button } from './style';
 
 export default function NewWallMeasure(props) {
-    const { numWall } = props;
     const { wallInformation, setWallInformation, } = useContext(TodoContext);  
     const [ wallHeight, setWallHeight ] = useState(0);
     const [ wallWidth, setWallWidth] = useState(0);
@@ -11,6 +10,7 @@ export default function NewWallMeasure(props) {
     const [ portQuantities, setPortQuantities] = useState(0); 
     const [ active, setActive ] = useState(false); 
     const numbers = [0, 1, 2, 3, 4, 5, 6];
+    const { numWall } = props;
 
     function SaveWallSize() {
         setWallInformation([...wallInformation, Number(wallHeight) * Number(wallWidth)]);
