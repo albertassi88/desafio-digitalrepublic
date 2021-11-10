@@ -3,10 +3,13 @@ import TodoContext from './TodoContext';
 
 function TodoProvider({ children }) {
   const [ wallInformation, setWallInformation ] = useState([]);
+  const [ activeWall, setActiveWall ] = useState(true); 
 
   const context = {
     wallInformation,
-    setWallInformation,     
+    setWallInformation, 
+    setActiveWall, 
+    activeWall,   
   };
 
   return (

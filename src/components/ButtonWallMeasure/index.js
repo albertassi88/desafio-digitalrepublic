@@ -4,16 +4,21 @@ import TodoContext from '../../context/TodoContext';
 import { Div, Button } from './style';
 
 export default function ButtonWallMeasure(props) {
-    const { wallInformation } = useContext(TodoContext);  
+    const { wallInformation, setActiveWall, activeWall } = useContext(TodoContext);  
     const { setNumWall, numWall } = props;
     const [ isModalVisible, setIsModalVisible ] = useState(false)
     const [ inkQuantity, setInkQuantity ] = useState();
     const [ number, setNumber ] = useState(2);
     const NUMBERFIVE = 5;
 
-    function UpdateNumber(sum) {
-        setNumWall([...numWall, sum]);
-        setNumber(number + 1);
+    function handleAddWall(sum) {
+        if (activeWall) {
+            alert("Favor Salvar antes de adicionar nova parede!");
+        }else {
+            setNumWall([...numWall, sum]);
+            setNumber(number + 1);
+            setActiveWall(true);
+        }
     }
     
     function handleCalculateNumber() {
@@ -27,7 +32,7 @@ export default function ButtonWallMeasure(props) {
     return (   
         <Div> 
             <Button 
-                onClick={() => UpdateNumber(number)}            
+                onClick={() => handleAddWall(number)}            
                 type="button"
                 disabled={number === NUMBERFIVE && true}
                 color={number === NUMBERFIVE}  
@@ -37,7 +42,7 @@ export default function ButtonWallMeasure(props) {
             <Button second 
                 onClick={() => handleCalculateNumber()}
                 type="button"
-                disabled={number === NUMBERFIVE ? false : true}
+                disabled={number === NUMBERFIVE  && !activeWall ? false : true}
                 colorSecond={number !== NUMBERFIVE} 
                 >
                 Calcular

@@ -12,8 +12,8 @@ export default function WallMeasure() {
             <Div second>
                 <HeaderWallMeasure />
                     <ul>
-                        {numWall.map(number => (
-                            <Li>
+                        {numWall.map((number, index) => (
+                            <Li key={index}>
                                 <Div third>                                    
                                     <NewWallMeasure numWall={number} />
                                 </Div>    
