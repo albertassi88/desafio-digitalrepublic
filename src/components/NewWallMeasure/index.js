@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import TodoContext from '../../context/TodoContext';
+import MeasureRules from "../../utils/MeasureRules";
 import { DivOption, Span, Label, Input, Select, Button } from './style';
 
 export default function NewWallMeasure(props) {
@@ -13,6 +14,7 @@ export default function NewWallMeasure(props) {
     const { numWall } = props;
 
     function SaveWallSize() {
+        MeasureRules(wallHeight, wallWidth, windowsQuantities, portQuantities)
         setWallInformation([
             ...wallInformation, 
             Number(wallHeight) * Number(wallWidth) 
