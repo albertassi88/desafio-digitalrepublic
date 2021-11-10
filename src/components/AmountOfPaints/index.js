@@ -1,13 +1,24 @@
 import React from "react";
 import InkQuantityRules from "../../utils/InkQuantityRules";
-import { Div } from "../AmountOfPaints/style";
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { Div, Span, Button } from "../AmountOfPaints/style";
 
 export default function AmountOfPaints({inkQuantity}) {
+    
+    function handleClose() {
+        window.location.reload();
+    }
 
     return (
         <Div>
-            <span>{`Quantidade de tinta necessária: ${inkQuantity} litro(s)`}</span>
+            <Span>{`Quantidade de tinta necessária: ${inkQuantity} litro(s)`}</Span>
             {InkQuantityRules(inkQuantity)}
+            <Button
+                onClick={() => handleClose()}
+                type="button"
+            >
+                <AiOutlineCloseCircle/>
+            </Button>
         </Div>
     );
 } 
