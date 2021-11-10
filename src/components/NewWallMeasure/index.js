@@ -13,8 +13,7 @@ export default function NewWallMeasure(props) {
     const numbers = [0, 1, 2, 3, 4, 5, 6];
     const { numWall } = props;
 
-    function SaveWallSize() {
-        MeasureRules(wallHeight, wallWidth, windowsQuantities, portQuantities)
+    function updateWallInformation() {
         setWallInformation([
             ...wallInformation, 
             Number(wallHeight) * Number(wallWidth) 
@@ -22,6 +21,11 @@ export default function NewWallMeasure(props) {
         ]);
         setActive(true);
     }
+
+    function SaveWallSize() {
+        MeasureRules(wallHeight, wallWidth, windowsQuantities, portQuantities, updateWallInformation);        
+    }
+    
     return (
         <>
             <DivOption> 
@@ -71,11 +75,12 @@ export default function NewWallMeasure(props) {
                     ))}
                 </Select>
             </DivOption>
-            <DivOption> 
-                <Button
+            <DivOption>
+                <Button 
+                    color={active && "#969394"}                                     
                     type="button"
                     onClick={() => SaveWallSize()}
-                    disabled={active}                
+                    disabled={active} 
                 >
                     Salvar
                 </Button> 

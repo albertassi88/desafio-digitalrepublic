@@ -5,10 +5,10 @@ import { Div, Button } from './style';
 
 export default function ButtonWallMeasure(props) {
     const { wallInformation } = useContext(TodoContext);  
-    const [isModalVisible, setIsModalVisible] = useState(false)
     const { setNumWall, numWall } = props;
+    const [ isModalVisible, setIsModalVisible ] = useState(false)
+    const [ inkQuantity, setInkQuantity ] = useState();
     const [ number, setNumber ] = useState(2);
-    const [ number2, setNumber2 ] = useState();
     const NUMBERFIVE = 5;
 
     function UpdateNumber(sum) {
@@ -16,11 +16,11 @@ export default function ButtonWallMeasure(props) {
         setNumber(number + 1);
     }
     
-    function handleCalcularNumber() {
-        var reduced = wallInformation.reduce((cc, value) => {
+    function handleCalculateNumber() {
+        let reduced = wallInformation.reduce((cc, value) => {
             return cc + value / 5
         }, 0)
-        setNumber2(reduced);
+        setInkQuantity(reduced);
         setIsModalVisible(true);
     }
     
@@ -30,16 +30,19 @@ export default function ButtonWallMeasure(props) {
                 onClick={() => UpdateNumber(number)}            
                 type="button"
                 disabled={number === NUMBERFIVE && true}
+                color={number === NUMBERFIVE}  
                 >
                 Adicionar parede
             </Button> 
             <Button second 
+                onClick={() => handleCalculateNumber()}
                 type="button"
-                onClick={() => handleCalcularNumber()}
+                disabled={number === NUMBERFIVE ? false : true}
+                colorSecond={number !== NUMBERFIVE} 
                 >
                 Calcular
             </Button> 
-            {isModalVisible && <AmountOfPaints number2={number2} />}
+            {isModalVisible && <AmountOfPaints inkQuantity={inkQuantity} />}
         </Div>
     );
 }

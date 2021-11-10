@@ -69,7 +69,9 @@ export const Button = styled.button`
     background-color: #FF4359;
     color: white;
     border-radius: 5px;
-    margin-top: 20px
+    margin-top: 20px;
+
+    background-color: ${(props) => props.color};
 `;
 
 
