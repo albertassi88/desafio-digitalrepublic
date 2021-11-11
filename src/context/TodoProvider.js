@@ -4,12 +4,15 @@ import TodoContext from './TodoContext';
 function TodoProvider({ children }) {
   const [ wallInformation, setWallInformation ] = useState([]);
   const [ activeWall, setActiveWall ] = useState(true); 
+  const [ message, setMessage ] = useState(""); 
 
   const context = {
     wallInformation,
     setWallInformation, 
     setActiveWall, 
-    activeWall,   
+    activeWall, 
+    message,
+    setMessage,  
   };
 
   return (

@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
 import AmountOfPaints from "../AmountOfPaints";
 import TodoContext from '../../context/TodoContext';
+import MessageRules from "../MessageRules";
 import { Div, Button } from './style';
 
 export default function ButtonWallMeasure(props) {
-    const { wallInformation, setActiveWall, activeWall } = useContext(TodoContext);  
+    const { wallInformation, setActiveWall, activeWall, message, setMessage } = useContext(TodoContext);  
     const { setNumWall, numWall } = props;
     const [ isModalVisible, setIsModalVisible ] = useState(false)
     const [ inkQuantity, setInkQuantity ] = useState();
@@ -13,7 +14,7 @@ export default function ButtonWallMeasure(props) {
 
     function handleAddWall(sum) {
         if (activeWall) {
-            alert("Favor Salvar antes de adicionar nova parede!");
+            setMessage("Favor Salvar antes de adicionar nova parede!");
         }else {
             setNumWall([...numWall, sum]);
             setNumber(number + 1);
@@ -48,6 +49,7 @@ export default function ButtonWallMeasure(props) {
                 Calcular
             </Button> 
             {isModalVisible && <AmountOfPaints inkQuantity={inkQuantity} />}
+            <MessageRules message={message}/>
         </Div>
     );
 }
