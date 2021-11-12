@@ -6,16 +6,17 @@ import { Div, Span, Button } from "../AmountOfPaints/style";
 export default function AmountOfPaints({inkQuantity}) {
     
     function handleClose() {
-        window.location.reload();
+        global.location.assign("/");
     }
 
     return (
         <Div>
-            <Span>{`Quantidade de tinta necessária: ${inkQuantity} litro(s)`}</Span>
+            <Span data-testid="number-display">{`Quantidade de tinta necessária: ${inkQuantity} litro(s)`}</Span>
             {InkQuantityRules(inkQuantity)}
             <Button
                 onClick={() => handleClose()}
                 type="button"
+                data-testid="reload-paints"
             >
                 <AiOutlineCloseCircle/>
             </Button>
