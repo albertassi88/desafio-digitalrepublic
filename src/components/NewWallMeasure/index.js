@@ -3,7 +3,7 @@ import TodoContext from '../../context/TodoContext';
 import MeasureRules from "../../utils/MeasureRules";
 import { DivOption, Span, Label, Input, Select, Button } from './style';
 
-export default function NewWallMeasure(props) {
+export default function NewWallMeasure({ numWall }) {
     const { wallInformation, setWallInformation, setActiveWall, setMessage } = useContext(TodoContext);  
     const [ wallHeight, setWallHeight ] = useState(0);
     const [ wallWidth, setWallWidth] = useState(0);
@@ -11,7 +11,6 @@ export default function NewWallMeasure(props) {
     const [ portQuantities, setPortQuantities] = useState(0); 
     const [ active, setActive ] = useState(false); 
     const numbers = [0, 1, 2, 3, 4, 5, 6];
-    const { numWall } = props;
 
     function updateWallInformation() {
         setWallInformation([
@@ -31,9 +30,10 @@ export default function NewWallMeasure(props) {
     return (
         <>
             <DivOption> 
-                <Span primary>{`PAREDE ${numWall}`}</Span>
+                <Span primary data-testid="number-wall">{`PAREDE ${numWall}`}</Span>
                 <Span>Altura</Span> 
                 <Input 
+                    data-testid="field-height"
                     placeholder="Em metros" 
                     type="number"
                     onChange={({target}) => setWallHeight(target.value)} 
@@ -43,6 +43,7 @@ export default function NewWallMeasure(props) {
             <DivOption> 
                 <Span>Largura</Span> 
                 <Input 
+                    data-testid="field-width"
                     placeholder="Em metros" 
                     type="number" 
                     onChange={({target}) => setWallWidth(target.value)} 
@@ -52,6 +53,7 @@ export default function NewWallMeasure(props) {
             <DivOption primary>
                 <Label htmlFor="window">Janela(s):</Label>
                 <Select 
+                    data-testid="field-window"
                     id="window" 
                     onChange={({target}) => setWindowsQuantities(target.value)} 
                     disabled={active}
@@ -66,6 +68,7 @@ export default function NewWallMeasure(props) {
             <DivOption primary>
                 <Label htmlFor="door">Porta(s):</Label>
                 <Select 
+                    data-testid="field-door"
                     id="door" 
                     onChange={({target}) => setPortQuantities(target.value)} 
                     disabled={active}
@@ -79,7 +82,8 @@ export default function NewWallMeasure(props) {
             </DivOption>
             <DivOption>
                 <Button 
-                    color={active && "#969394"}                                     
+                    data-testid="btn-save"
+                    colorPrimary={active && "#969394"}                                     
                     type="button"
                     onClick={() => SaveWallSize()}
                     disabled={active} 

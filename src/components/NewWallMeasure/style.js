@@ -71,7 +71,7 @@ export const Button = styled.button`
     border-radius: 5px;
     margin-top: 20px;
 
-    background-color: ${(props) => props.color};
+    background-color: ${(props) => props.colorPrimary};
 `;
 
 

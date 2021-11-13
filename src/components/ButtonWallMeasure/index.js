@@ -36,7 +36,7 @@ export default function ButtonWallMeasure(props) {
                 onClick={() => handleAddWall(number)}            
                 type="button"
                 disabled={number === NUMBERFIVE && true}
-                color={number === NUMBERFIVE}  
+                colorPrimary={number === NUMBERFIVE}  
                 >
                 Adicionar parede
             </Button> 

@@ -22,7 +22,7 @@ export const Button = styled.button`
     background-color: white;  
     margin-right: 10px;
 
-    ${(props) => props.color &&
+    ${(props) => props.colorPrimary &&
         css`            
             background-color: #969394; 
             color: white; 
