@@ -4,9 +4,8 @@ import TodoContext from '../../context/TodoContext';
 import MessageRules from "../MessageRules";
 import { Div, Button } from './style';
 
-export default function ButtonWallMeasure(props) {
+export default function ButtonWallMeasure({ setNumWall, numWall }) {
     const { wallInformation, setActiveWall, activeWall, message, setMessage } = useContext(TodoContext);  
-    const { setNumWall, numWall } = props;
     const [ isModalVisible, setIsModalVisible ] = useState(false)
     const [ inkQuantity, setInkQuantity ] = useState();
     const [ number, setNumber ] = useState(2);
@@ -33,6 +32,7 @@ export default function ButtonWallMeasure(props) {
     return (   
         <Div> 
             <Button 
+                data-testid="btn-add-wall"
                 onClick={() => handleAddWall(number)}            
                 type="button"
                 disabled={number === NUMBERFIVE && true}
@@ -41,6 +41,7 @@ export default function ButtonWallMeasure(props) {
                 Adicionar parede
             </Button> 
             <Button second 
+                data-testid="btn-calculate"
                 onClick={() => handleCalculateNumber()}
                 type="button"
                 disabled={number === NUMBERFIVE  && !activeWall ? false : true}
