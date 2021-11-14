@@ -1,4 +1,4 @@
-import styled, { css }  from 'styled-components';
+import styled, { css }  from "styled-components";
 
 export const DivOption = styled.div`
     width: 180px;
@@ -9,7 +9,6 @@ export const DivOption = styled.div`
     align-items: center;
     position: relative;
     margin-top: 180px;
-
 
     @media(max-width: 900px) { 
         width: 140px;    
@@ -36,7 +35,7 @@ export const DivOption = styled.div`
     }
     
     ${props =>
-        props.primary &&
+    props.primary &&
         css`
             width: 90px;
             
@@ -97,7 +96,7 @@ export const Span = styled.span`
     }
 
     ${props =>
-        props.primary &&
+    props.primary &&
         css`            
             font-size: 19px; 
             position: absolute;
@@ -280,9 +279,7 @@ export const Button = styled.button`
         font-size: 7px;  
         width: 35px;
         height: 10px; 
-
-    } 
- 
+    }  
 `;
 
 

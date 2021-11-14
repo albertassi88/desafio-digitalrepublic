@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Div = styled.div`
     width: 100%;
@@ -7,9 +7,9 @@ export const Div = styled.div`
     align-items: center;
     position: absolute;
     bottom: -140px;
-    `;
+`;
     
-    export const Span = styled.span` 
+export const Span = styled.span` 
     color: red;
     font-size: 16px;
     font-weight: bold;
@@ -33,6 +33,6 @@ export const Div = styled.div`
     @media(max-width: 350px) { 
         font-size: 6px; 
     }
-`
+`;
 
     

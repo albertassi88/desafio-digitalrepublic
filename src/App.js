@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./pages/Home/index";
-import TodoProvider from './context/TodoProvider';
+import TodoProvider from "./context/TodoProvider";
 
 function App() {
   return (

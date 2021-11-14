@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Div = styled.div`
     width: 100vw;
@@ -9,7 +9,7 @@ export const Div = styled.div`
     align-items: center;
     
     ${props =>
-        props.second &&
+    props.second &&
         css`
         width: 800px;
         min-height: 600px;
@@ -22,12 +22,11 @@ export const Div = styled.div`
         
         @media(max-width: 900px) { 
             width: 100%;       
-        }  
-        
+        }          
     `};
         
         ${props =>
-            props.third &&
+    props.third &&
             css`
             width: 100%;
             height: 120px;

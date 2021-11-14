@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import TodoContext from './TodoContext';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import TodoContext from "./TodoContext";
 
-function TodoProvider({ children }) {
+export default function TodoProvider({ children }) {
   const [ wallInformation, setWallInformation ] = useState([]);
   const [ activeWall, setActiveWall ] = useState(true); 
   const [ message, setMessage ] = useState(""); 
@@ -24,4 +25,10 @@ function TodoProvider({ children }) {
   );
 }
 
-export default TodoProvider;
+TodoProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired
+};
+

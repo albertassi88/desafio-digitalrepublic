@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 export const Div = styled.div`
     width: 100%;
@@ -7,7 +7,6 @@ export const Div = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
-
 `;
     
 export const Button = styled.button`
@@ -23,7 +22,6 @@ export const Button = styled.button`
     background-color: white;  
     margin-right: 10px;
     margin-top: 260px;
-
 
     @media(max-width: 680px) { 
         width: 120px;
@@ -63,7 +61,7 @@ export const Button = styled.button`
     `};
 
     ${props =>
-        props.second &&
+    props.second &&
         css`            
             background-color: #FF4359; 
             color: white;                        
