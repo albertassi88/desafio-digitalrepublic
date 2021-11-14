@@ -20,12 +20,16 @@ export const Div = styled.div`
         border: 1px solid #e1d6e2;   
         position: relative;
         
-        `};
+        @media(max-width: 900px) { 
+            width: 100%;       
+        }  
+        
+    `};
         
         ${props =>
             props.third &&
             css`
-            width: 1250px;
+            width: 100%;
             height: 120px;
             display: flex;
             flex-direction: row;
@@ -33,7 +37,6 @@ export const Div = styled.div`
             align-items: center;
             flex-wrap: wrap;
             position: relative;
-            border-bottom: 1px solid #e1d6e2; 
     `};
 `;
 

@@ -25,7 +25,7 @@ export default function ButtonWallMeasure({ setNumWall, numWall }) {
         let reduced = wallInformation.reduce((cc, value) => {
             return cc + value / 5
         }, 0)
-        setInkQuantity(reduced);
+        setInkQuantity(reduced.toFixed(2));
         setIsModalVisible(true);
     }
     
